@@ -18,6 +18,21 @@ h1, h2 {
     color: #2c3e50;
 }
 
+.Titre {
+    color: #f4f4f4;
+    margin-left: 45%;
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    height: 70px; 
+    width: 150px;           
+    text-align: center; 
+        
+}
+
+.Titre:hover{
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);  
+}
 /* Navbar */
 nav {
     position: fixed;
@@ -44,7 +59,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #e74c3c;
+    color: #e4a694;
 }
 
 /* Section */
