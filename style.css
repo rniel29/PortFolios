@@ -5,89 +5,278 @@
     box-sizing: border-box;
 }
 
-/* Style général */
+/* Variables CSS */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --border-color: #e9ecef;
+}
+
+/* Styles généraux */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-    padding-top: 50px;
+    color: var(--text-color);
+    background-color: var(--light-bg);
 }
 
-h1, h2 {
-    color: #2c3e50;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.Titre {
-    color: #f4f4f4;
-    margin-left: 45%;
-    display: flex;
-    justify-content: center;  
-    align-items: center;     
-    height: 70px; 
-    width: 150px;           
-    text-align: center; 
-        
-}
-
-.Titre:hover{
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);  
-}
-/* Navbar */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #2c3e50;
-    padding: 10px 0;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-nav ul {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
     list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+    scroll-margin-top: 100px; /* Décalage pour la navigation fixe */
+}
+
+section:first-of-type {
+    padding-top: 6rem;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
     text-align: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 20px;
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
-nav ul li a:hover {
-    color: #e4a694;
+/* Boîtes de contenu */
+.content-box {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 }
 
-/* Section */
-section {
-    padding: 50px;
-    margin-top: 60px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+.content-box p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
-section h2 {
-    margin-bottom: 20px;
+.content-box ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-section ul {
-    list-style-type: disc;
-    margin-left: 20px;
+.content-box li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 20px;
+}
+
+.content-box li:before {
+    content: '▸';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.content-box li:last-child {
+    border-bottom: none;
+}
+
+/* Grille de compétences */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.skill-category ul {
+    list-style-type: none;
+}
+
+.skill-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li:before {
+    content: '✓';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.skill-category li:last-child {
+    border-bottom: none;
+}
+
+/* Section présentation */
+#presentation {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+#presentation h1,
+#presentation p {
+    color: var(--white);
+}
+
+#presentation p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sections alternées */
+section:nth-child(even) {
+    background-color: var(--white);
 }
 
 /* Footer */
 footer {
+    background-color: var(--primary-color);
+    color: var(--white);
     text-align: center;
-    padding: 10px;
-    background-color: #2c3e50;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 2rem 0;
+}
+
+footer p {
+    color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 1rem 20px;
+    }
+
+    .nav-menu {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    section {
+        scroll-margin-top: 140px; /* Décalage plus grand sur mobile */
+    }
+
+    section:first-of-type {
+        padding-top: 8rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-box,
+    .skill-category {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
 }
